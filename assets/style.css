@@ -116,6 +116,15 @@ a.back:hover { color: var(--accent-hover); }
   margin: 0 0 20px;
 }
 
+main h2 {
+  font-size: 20px;
+  margin: 36px 0 12px;
+}
+
+main h2:first-of-type {
+  margin-top: 8px;
+}
+
 .preview {
   border: 1px solid var(--border);
   border-radius: 16px;
