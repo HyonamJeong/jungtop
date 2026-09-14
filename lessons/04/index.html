@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4차시 | 중탑 OpenSCAD 교실</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<main>
+  <a class="back" href="../../index.html">&larr; 목록으로</a>
+  <h1 class="lesson-title">4차시 🕳️</h1>
+
+  <h2>실습1</h2>
+  <div class="preview">
+    <span class="placeholder">완성 이미지 준비 중</span>
+  </div>
+
+  <div class="code-block">
+    <pre id="code1">difference() {
+  cube([30, 20, 12]);
+  translate([15, 10, -1])   // 살짝 더 아래에서 시작
+    cylinder(h=14, r=5, $fn=30);  // 높이도 12보다 여유 있게!
+}
+
+// 큐브 높이(12)보다 조금 더 길게(14) 여유를 주면
+// 확실하게 완전히 뚫려요 — 이 여유를 tolerance(공차)라고 해요</pre>
+  </div>
+
+  <button class="copy-btn" data-target="code1">코드 복사하기</button>
+
+  <p><a class="back" href="0401.scad" download>0401.scad 파일 다운로드</a></p>
+</main>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach((btn) => {
+  const code = document.getElementById(btn.dataset.target);
+  const originalText = btn.textContent;
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(code.textContent);
+      btn.textContent = '복사 완료!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('copied');
+      }, 1500);
+    } catch (e) {
+      btn.textContent = '복사 실패, 직접 선택해서 복사해주세요';
+    }
+  });
+});
+</script>
+</body>
+</html>
